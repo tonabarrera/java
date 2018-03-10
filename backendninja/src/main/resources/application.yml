@@ -17,7 +17,7 @@ spring:
     check-template: true
     check-template-location: true
     encoding: UTF-8
-    mode: HTML5
+    mode: HTML
     servlet:
       content-type: text/html
     suffix: .html
