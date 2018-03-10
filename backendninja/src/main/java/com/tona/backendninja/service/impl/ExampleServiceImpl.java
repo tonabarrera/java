@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * @author tona created on 10/03/2018 for backendninja.
+ * Los servicios tienen toda la logica, los controladores solo deben
+ * de llamar a servicios
  */
 @Service("exampleService")
 public class ExampleServiceImpl implements ExampleService {

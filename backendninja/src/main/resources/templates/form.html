@@ -8,7 +8,9 @@
 <body>
     <form action="#" th:action="@{/postExample/addPerson}" th:object="${person}" method="post">
         <p>Name: <input type="text" th:field="*{name}"></p>
+        <p th:if="${#fields.hasErrors('name')}" th:erros="*{name}">Error in name</p>
         <p>Age: <input type="number" th:field="*{age}"></p>
+        <p th:if="${#fields.hasErrors('age')}" th:erros="*{age}">Error in age</p>
         <input type="submit" value="Submit">
     </form>
 </body>

@@ -1,10 +1,19 @@
 package com.tona.backendninja.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @author tona created on 10/03/2018 for backendninja.
  */
 public class Person {
+    @NotNull
+    @Size(min=2, max=6)
     private String name;
+
+    @NotNull
+    @Min(18)
     private int age;
 
     public Person() {}
