@@ -6,7 +6,18 @@
 #  couchbase:
 #    bucket:
 #      name: default
-#spring:
-#  banner:
-#    image:
-#      location: classpath://banner-example/banner.txt
+# Las siguientes propiedes tienen sus valores por defecto
+# Por lo que no es necesario ponerlas
+# a menos que se sobreescriban
+spring:
+  banner:
+      location: classpath:banner-example/banner.txt
+  thymeleaf:
+    cache: true
+    check-template: true
+    check-template-location: true
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+    suffix: .html
