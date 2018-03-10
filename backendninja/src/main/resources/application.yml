@@ -1,0 +1,12 @@
+#spring:
+#  messages:
+#    basename: messages
+#    always-use-message-format: false
+#    cache-duration: 5s
+#  couchbase:
+#    bucket:
+#      name: default
+#spring:
+#  banner:
+#    image:
+#      location: classpath://banner-example/banner.txt
