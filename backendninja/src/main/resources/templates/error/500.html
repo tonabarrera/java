@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Backend Ninja</title>
   <meta charset="utf-8">
@@ -44,7 +45,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-   <img src="../../../../../../../Cursos/java/Udemy%20-%20Spring%204.3%20De%20Cero%20a%20Ninja/templates_backendninja/static/imgs/3.png">
+   <img th:src="@{/imgs/3.png}">
     <h1>Error...</h1>
     <p>There is a problem with the resource you are looking for, and it cannot be displayed.</p>
   </div>

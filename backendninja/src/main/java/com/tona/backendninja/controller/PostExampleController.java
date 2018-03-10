@@ -1,6 +1,8 @@
 package com.tona.backendninja.controller;
 
 import com.tona.backendninja.model.Person;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,9 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @RequestMapping("/postExample")
 public class PostExampleController {
+    private static final Log LOGGER = LogFactory.getLog(PostExampleController.class);
+
+
     private static final String FORM_VIEW = "form";
     private static final String RESULT_VIEW = "result-view";
 
@@ -33,6 +38,11 @@ public class PostExampleController {
     @GetMapping("/form")
     public String getFormViewform(Model model) {
         model.addAttribute("person", new Person());
+        LOGGER.info("INFO TRACE");
+        LOGGER.warn("WARNING TRACE");
+        LOGGER.debug("DEBUG TRACE");
+        LOGGER.error("ERROR TRACE");
+        LOGGER.fatal("FATAL TRACE");
         return FORM_VIEW;
     }
 

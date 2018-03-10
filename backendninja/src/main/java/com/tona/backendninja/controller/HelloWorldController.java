@@ -1,6 +1,9 @@
 package com.tona.backendninja.controller;
 
+import com.tona.backendninja.component.ExampleComponent;
 import com.tona.backendninja.model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,10 @@ import java.util.List;
 @RequestMapping("/say")
 public class HelloWorldController {
     private static final String EXAMPLE_VIEW = "example";
+
+    @Autowired
+    @Qualifier("exampleComponent")
+    private ExampleComponent exampleComponent;
 
     // Primera forma (para redirecciones)
     @RequestMapping(value="/helloString", method = RequestMethod.GET)
@@ -37,6 +44,7 @@ public class HelloWorldController {
     // Tercera forma, tambien aplica a ModelAndView
     @GetMapping("/hello")
     public String helloWorld(Model model) {
+        exampleComponent.sayHello();
         model.addAttribute("people", getPeople());
         return EXAMPLE_VIEW;
     }

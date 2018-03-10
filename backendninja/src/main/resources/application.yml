@@ -21,3 +21,7 @@ spring:
     servlet:
       content-type: text/html
     suffix: .html
+server:
+  error:
+    whitelabel:
+      enabled: false
