@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author tona created on 10/03/2018 for backendninja.
  */
 @Configuration
-public class WebMVC implements WebMvcConfigurer {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Autowired
     @Qualifier("requestTimeInterceptor")

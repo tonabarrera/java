@@ -11,9 +11,9 @@
 # a menos que se sobreescriban
 spring:
   banner:
-      location: classpath:banner-example/banner.txt
+      location: classpath:banner.txt
   datasource:
-    url: jdbc:mysql://localhost:3306/ninja
+    url: jdbc:mysql://localhost:3306/ninja?useSSL=false
     username: root
     password: root
   thymeleaf:
