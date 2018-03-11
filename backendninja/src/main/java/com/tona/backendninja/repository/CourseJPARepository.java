@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Repository("courseJPARepository")
 public interface CourseJPARepository extends JpaRepository<Course, Serializable> {
-     Course findByPrice(int price);
-     Course findByPriceAAndName(int price, String name);
+    Course findByPrice(int price);
+    Course findByPriceAndName(int price, String name);
     List<Course> findByNameOrderByHours(String name);
     Course findByNameOrPrice(String name, int price);
 }

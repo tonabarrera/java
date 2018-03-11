@@ -13,9 +13,6 @@ import org.springframework.stereotype.Component;
 @Component("exampleComponent")
 public class ExampleComponent {
     private static final Log LOGGER = LogFactory.getLog(ExampleComponent.class);
-    @Autowired
-    @Qualifier("courseJPARepository")
-    private CourseJPARepository courseJPARepository;
 
     public ExampleComponent() {}
     public  void sayHello() {
