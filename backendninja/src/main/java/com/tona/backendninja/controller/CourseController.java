@@ -1,6 +1,7 @@
 package com.tona.backendninja.controller;
 
 import com.tona.backendninja.entity.Course;
+import com.tona.backendninja.model.CourseModel;
 import com.tona.backendninja.service.CourseService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,13 +31,13 @@ public class CourseController {
     public ModelAndView listCourses() {
         LOG.info("call listCourses()");
         ModelAndView modelAndView = new ModelAndView(COURSES_VIEW);
-        modelAndView.addObject("course", new Course());
+        modelAndView.addObject("course", new CourseModel());
         modelAndView.addObject("courses", courseService.listAllCourses());
         return modelAndView;
     }
 
     @PostMapping("/addcourse")
-    public String addCourse(@ModelAttribute("course") Course course) {
+    public String addCourse(@ModelAttribute("course") CourseModel course) {
         LOG.info("call addCourse()");
         courseService.addCourse(course);
         return "redirect:/courses/listcourses";

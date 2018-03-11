@@ -24,5 +24,22 @@
             </tr>
         </tbody>
     </table>
+
+    <div>
+        <form action="#" th:action="@{/courses/addcourse}" th:object="${course}" method="post">
+            <p>Name: <input type="text" th:field="*{name}"></p>
+            <p th:if="${#fields.hasErrors('name')}" th:erros="*{name}">Error in name</p>
+
+            <p>Description: <input type="text" th:field="*{description}"></p>
+            <p th:if="${#fields.hasErrors('description')}" th:erros="*{description}">Error in description</p>
+
+            <p>Price: <input type="text" th:field="*{price}"></p>
+            <p th:if="${#fields.hasErrors('price')}" th:erros="*{price}">Error in price</p>
+
+            <p>Hours: <input type="text" th:field="*{hours}"></p>
+            <p th:if="${#fields.hasErrors('hours')}" th:erros="*{hours}">Error in hours</p>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 </html>
