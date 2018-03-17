@@ -4,6 +4,7 @@ package com.tona.backendninja.model;
  * @author tona created on 16/03/2018 for backendninja.
  */
 public class ContactModel {
+    private int id;
     private String firstname;
     private String lastname;
     private String telephone;
@@ -12,7 +13,8 @@ public class ContactModel {
     public ContactModel() {
     }
 
-    public ContactModel(String firstname, String lastname, String telephone, String city) {
+    public ContactModel(int id, String firstname, String lastname, String telephone, String city) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.telephone = telephone;
@@ -55,5 +57,13 @@ public class ContactModel {
     public String toString() {
         return "ContactModel{" + "firstname='" + firstname + '\'' + ", lastname='" + lastname +
                 '\'' + ", telephone='" + telephone + '\'' + ", city='" + city + '\'' + '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

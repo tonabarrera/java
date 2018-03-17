@@ -10,4 +10,6 @@ import java.io.Serializable;
  * @author tona created on 16/03/2018 for backendninja.
  */
 @Repository
-public interface ContactRepository extends JpaRepository<Contact, Serializable>{}
+public interface ContactRepository extends JpaRepository<Contact, Serializable>{
+    Contact findById(int id);
+}

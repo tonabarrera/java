@@ -2,14 +2,15 @@ package com.tona.backendninja.controller;
 
 import com.tona.backendninja.constant.ViewConstant;
 import com.tona.backendninja.model.ContactModel;
+import com.tona.backendninja.service.ContactService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author tona created on 16/03/2018 for backendninja.
@@ -19,9 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ContactController {
     private static final Log LOG = LogFactory.getLog(ContactController.class);
 
+    @Autowired
+    @Qualifier("contactServiceImpl")
+    private ContactService contactService;
+
     @GetMapping("/cancel")
     public String cancel() {
-        return ViewConstant.CONTACTS;
+        return "redirect:/contact/show";
     }
 
     @GetMapping("/form")
@@ -33,8 +38,26 @@ public class ContactController {
     @PostMapping("/add")
     public String add(@ModelAttribute(name = "contactModel") ContactModel contactModel,
             Model model) {
-        model.addAttribute("result", 1);
         LOG.info("add() -- PARAMS: " + contactModel.toString());
-        return ViewConstant.CONTACTS;
+
+        if(contactService.add(contactModel) != null)
+            model.addAttribute("result", 1);
+        else
+            model.addAttribute("result", 0);
+        return "redirect:/contact/show";
+
+    }
+
+    @GetMapping("/show")
+    public ModelAndView show() {
+        ModelAndView modelAndView = new ModelAndView(ViewConstant.CONTACTS);
+        modelAndView.addObject("contacts", contactService.listAllContacts());
+        return modelAndView;
+    }
+
+    @GetMapping("/remove")
+    public ModelAndView remove(@RequestParam(name = "id", required = true) int id) {
+        contactService.removeContact(id);
+        return show();
     }
 }
