@@ -19,7 +19,7 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter{
     // Antes de entrar en el metodo del controlador
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-            Object handler) throws Exception {
+            Object handler) {
         request.setAttribute("startTime", System.currentTimeMillis());
         return true;
     }
@@ -27,9 +27,9 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter{
     // Antes de devolver la vista al navegador
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
-            Object handler, Exception ex) throws Exception {
+            Object handler, Exception ex) {
         long startTime = (long) request.getAttribute("startTime");
-        LOG.info("--REQUEST URL: '" + request.getRequestURL().toString() + "' -- TOTAL TIME: '"
+        LOG.info("URL to: '" + request.getRequestURL().toString() + "' in: '"
                 + (System.currentTimeMillis() - startTime) + "ms'");
     }
 }
