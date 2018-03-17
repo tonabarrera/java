@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
-/**
- * @author tona created on 10/03/2018 for backendninja.
- */
 @Component("requestTimeInterceptor")
 public class RequestTimeInterceptor extends HandlerInterceptorAdapter{
     private static final Log LOG = LogFactory.getLog(RequestTimeInterceptor.class);
