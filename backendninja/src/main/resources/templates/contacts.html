@@ -2,24 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8"/>
-
     <title>Backend Ninja - Signin</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-
     <!-- Custom styles for this template -->
     <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
-    
     <link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
-
   </head>
-
   <body>
-
     <div class="container">
-
-        <h1>Hello, user!</h1>
+        <h1>Hello, <span th:text="${username}"></span>!</h1>
         <br/>
         <div class="panel panel-default">
             <div class="panel-heading"></div>
