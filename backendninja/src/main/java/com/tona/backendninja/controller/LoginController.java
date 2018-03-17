@@ -19,12 +19,6 @@ public class LoginController {
 
     private static final Log LOG = LogFactory.getLog(LoginController.class);
 
-    @GetMapping("/")
-    public String redirectToLogin() {
-        LOG.info("redirectToLogin()");
-        return "redirect:/login";
-    }
-
     @GetMapping("/login")
     public String showLoginForm(Model model,
             @RequestParam(name = "error", required = false) String error,
@@ -32,19 +26,13 @@ public class LoginController {
         LOG.info("showLoginForm() -- PARAMS: error" + error + ", logout: " + logout);
         model.addAttribute("error", error);
         model.addAttribute("logout", logout);
-        model.addAttribute("userCredentials", new UserCredential());
         LOG.info("return login view");
         return ViewConstant.LOGIN;
     }
 
-    @PostMapping("/logincheck")
-    public String loginCheck(@ModelAttribute(name = "userCredentials") UserCredential userCredential) {
-        LOG.info("loginCheck() -- PARAMS: userCredential: " + userCredential.toString());
-        if (userCredential.getUsername().equals("user") && userCredential.getPassword().equals("user")) {
-            LOG.info("return contacts view");
-            return "redirect:/contact/show";
-        }
-        LOG.info("redirect login error");
-        return "redirect:/login?error";
+    @GetMapping({"/loginsuccess", "/"})
+    public String loginSuccess() {
+        LOG.info("METHOD: loginSucess()");
+        return "redirect:/contact/show";
     }
 }
