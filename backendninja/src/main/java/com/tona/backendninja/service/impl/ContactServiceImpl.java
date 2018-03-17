@@ -53,4 +53,9 @@ public class ContactServiceImpl implements ContactService{
         if (contact != null)
             contactRepository.delete(contact);
     }
+
+    @Override
+    public ContactModel findContactModelById(int id) {
+        return contactConverter.entityToModel(findContactById(id));
+    }
 }
