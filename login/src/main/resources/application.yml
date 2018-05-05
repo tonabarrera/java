@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/prueba
+    username: postgres
+    password: postgres
+    platform: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type: TRACE
+      springframework: ERROR
