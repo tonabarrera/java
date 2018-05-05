@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EL pinchi login</title>
+</head>
+<body>
+    <h1>LOGIN</h1>
+
+    <form class="form-signin" th:action="@{/logincheck}" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+        <h2 class="form-signin-heading">Sign in</h2>
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" class="form-control" placeholder="Email" name="email" id="email"/>
+
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" class="form-control" placeholder="Password"
+               name="password" id="password"/>
+
+        <div th:if="${error != null}" class="alert alert-danger" role="alert">
+            Invalid email or Password
+        </div>
+        <div th:if="${logout != null}" class="alert alert-info" role="alert">Vuelve
+            pronto</div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+        </button>
+    </form>
+</body>
+</html>

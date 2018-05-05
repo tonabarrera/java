@@ -11,8 +11,19 @@ public class Personal {
     @Column
     private String nombre;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "personal", orphanRemoval = true)
     private Login login;
+
+    @Column
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public Long getId() {
         return id;

@@ -13,7 +13,7 @@ public class Login {
     @Column
     private String passwordhash;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Personal personal;
 
     public String getCorreo() {
